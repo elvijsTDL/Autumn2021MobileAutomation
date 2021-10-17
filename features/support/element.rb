@@ -50,4 +50,17 @@ class Elements
     }
   end
 
+  def get_multiple_elements(timeout: 15)
+    wait_opts = {
+      timeout: timeout,
+      interval: 0.3,
+      message: "Element was not found. Method: #{@type} , Selector: #{@value}"
+    }
+    $driver.wait(wait_opts) {
+      elements = $driver.find_elements(@type, @value)
+      return elements if elements.length > 0
+      raise "Element was not found. Method: #{@type} , Selector: #{@value}"
+    }
+  end
+
 end

@@ -12,4 +12,8 @@ class Screens
     @my_account_screen ||= MyAccountScreen.new
   end
 
+  def product_screen
+    @product_screen ||= ProductScreen.new
+  end
+
 end

@@ -1,6 +1,6 @@
 Feature: Authorization test case
   Background: Basicly pre-conditions for all test cases
-
+    When User goes to login page
 
   @Registering @Smoke
   Scenario: Registering a random user
@@ -13,17 +13,13 @@ Feature: Authorization test case
 
   @Login @SomeOtherTypeofTests
   Scenario Outline: Logging in with an existing user
-    When User goes to login page
     And User inputs <email> into the email field
     And User inputs <password> into the password field
     And The The user clicks on login
     Then User sees the home screen
-    And My account page contains users email
+    And My account page contains users email <email>
+    And My account page contains users name <name>
     Examples:
-      | email                 | password          | name |
-      | autumnskuul@gmail.com | Password123       |      |
-      | tdltdl@gmail.com      | SecretPassword123 |      |
-
-    @test
-    Scenario:
-      And My account page contains users email
+      | email                 | password          | name        |
+      | autumnskuul@gmail.com | Password123       | NameTesting |
+      | tdltdl@gmail.com      | SecretPassword123 | YoloBolo    |

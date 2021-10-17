@@ -21,7 +21,6 @@ class AuthorizationScreen
   end
 
   def go_to_signup_page
-    @go_to_login_page_button.click
     @sign_up_button.click
   end
 

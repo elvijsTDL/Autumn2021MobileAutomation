@@ -38,7 +38,11 @@ And(/^The The user clicks on login$/) do
   @screens.auth_screen.submit_login
 end
 
-And(/^My account page contains users email$/) do
+And(/^My account page contains users email (.*)$/) do |email|
   @screens.main_screen.open_my_account_page
-  @screens.my_account_screen.validate_user_name
+  @screens.my_account_screen.validate_email(email)
+end
+
+And(/^My account page contains users name (.*)$/) do |name|
+  @screens.my_account_screen.validate_user_name(name)
 end
