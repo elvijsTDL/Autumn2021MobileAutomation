@@ -6,7 +6,8 @@ opts = {
     deviceName: "Samsungs",
     automationName: "UiAutomator2",
     app: "/Users/elvijsdzirkals/Desktop/Foreveryng.apk",
-    udid: "RF8N205TNHZ"
+    udid: "RF8N205TNHZ",
+    noReset: true
   },
   appium_lib: {
     server_url: "http://localhost:4723/wd/hub"

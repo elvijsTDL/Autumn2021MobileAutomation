@@ -1,5 +1,8 @@
 Feature: Authorization test case
+  Background: Basicly pre-conditions for all test cases
 
+
+  @Registering @Smoke
   Scenario: Registering a random user
     When User goes to the sign up page
     And User types in random user credentials
@@ -7,3 +10,20 @@ Feature: Authorization test case
     And User skips referral code screen
     And User skips verify phone number screen
     Then User sees the home screen
+
+  @Login @SomeOtherTypeofTests
+  Scenario Outline: Logging in with an existing user
+    When User goes to login page
+    And User inputs <email> into the email field
+    And User inputs <password> into the password field
+    And The The user clicks on login
+    Then User sees the home screen
+    And My account page contains users email
+    Examples:
+      | email                 | password          | name |
+      | autumnskuul@gmail.com | Password123       |      |
+      | tdltdl@gmail.com      | SecretPassword123 |      |
+
+    @test
+    Scenario:
+      And My account page contains users email
